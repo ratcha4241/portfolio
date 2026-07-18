@@ -1,7 +1,3 @@
-นี่คือโค้ด HTML และ CSS สไตล์พอร์ตโฟลิโอสุดน่ารัก (สไตล์คุณหนู/คาเฟ่) ในธีมสีชมพูพาสเทลตัดกับสีขาวตามที่คุณนุ้ยต้องการครับ
-โค้ดนี้ได้รับการพัฒนาเพิ่มขึ้นโดยใส่ลูกเล่นภาพเคลื่อนไหว (Animations) ต่างๆ เช่น หัวใจลอยนุ่มนวลฉากหลัง ตัวกล่องข้อความที่จะขยับลอยขึ้นเบาๆ เมื่อเอาเมาส์ไปชี้ และปุ่มติดต่อที่ขยับดุ๊กดิ๊ก ดึงดูดสายตาและทำให้น่ารักน่าใช้งานมากๆ ครับ
-คุณสามารถก๊อปปี้โค้ดด้านล่างนี้ทั้งหมด ไปบันทึกเป็นไฟล์ชื่อ index.html แล้วดับเบิลคลิกเปิดดูได้เลยครับ!
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -9,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>พอร์ตโฟลิโอสุดน่ารัก | คุณนุ้ย รัชดาภรณ์</title>
     <style>
-        /* นำเข้าฟอนต์น่ารัก ละมุน แต่อ่านง่าย */
+        /* นำเข้าฟอนต์ภาษาไทยที่อ่านง่ายและดูละมุน */
         @import url('https://googleapis.com');
         
         * {
@@ -20,8 +16,8 @@
         }
 
         body {
-            background-color: #fff5f7; /* สีชมพูอ่อนมากๆ แบบละมุน */
-            color: #6a4a55; /* สีน้ำตาลอมชมพูเข้ม เพื่อให้อ่านง่ายและเข้าธีม */
+            background-color: #fff5f7; /* พื้นหลังสีชมพูพาสเทลอ่อน */
+            color: #6a4a55; /* สีตัวอักษรน้ำตาลเข้มอมชมพูเพื่อให้อ่านง่าย */
             line-height: 1.7;
             overflow-x: hidden;
             position: relative;
@@ -42,7 +38,6 @@
             user-select: none;
             pointer-events: none;
         }
-        /* ตั้งเวลาและตำแหน่งให้หัวใจแต่ละดวงขึ้นไม่พร้อมกัน */
         .h1 { left: 10%; animation: floatHearts 12s infinite linear; }
         .h2 { left: 30%; animation: floatHearts 8s infinite linear 2s; }
         .h3 { left: 55%; animation: floatHearts 14s infinite linear 1s; }
@@ -56,7 +51,6 @@
             text-align: center;
             box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
             border-bottom: 5px dashed #ffffff;
-            position: relative;
         }
 
         header h1 {
@@ -82,33 +76,32 @@
             padding: 0 20px;
         }
 
-        /* ส่วนของแต่ละหัวข้อ (Sections) */
+        /* กล่องเนื้อหาแต่ละหัวข้อ */
         section {
-            background-color: #ffffff; /* พื้นหลังสีขาว */
+            background-color: #ffffff; /* พื้นหลังกล่องสีขาวสะอาด */
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.15); /* เงาสีชมพูบางๆ */
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.15);
             border: 2px solid #ffe4e1;
-            position: relative;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* เอฟเฟกต์เมื่อเอาเมาส์ชี้ กล่องจะลอยขึ้นและเด่นชัดขึ้น */
+        /* เอฟเฟกต์เมื่อเอาเมาส์ชี้ กล่องจะลอยขึ้น */
         section:hover {
             transform: translateY(-7px);
             box-shadow: 0 12px 25px rgba(255, 182, 193, 0.3);
             border-color: #ffb6c1;
         }
 
-        /* แอนิเมชันส่ายดุ๊กดิ๊กเบาๆ สำหรับไอคอนหัวข้อ */
+        /* แอนิเมชันไอคอนดอกไม้ส่ายดุ๊กดิ๊ก */
         @keyframes wiggle {
             0%, 100% { transform: rotate(0deg); }
             50% { transform: rotate(10deg); }
         }
 
         h2 {
-            color: #d15b74; /* สีชมพูเข้ม */
+            color: #d15b74;
             margin-bottom: 20px;
             font-size: 1.5rem;
             border-bottom: 2px dotted #ffcbd5;
@@ -127,7 +120,6 @@
             animation: wiggle 0.5s ease infinite;
         }
 
-        /* ข้อมูลประวัติส่วนตัว */
         .profile-info p {
             margin-bottom: 12px;
             font-size: 1.1rem;
@@ -166,7 +158,7 @@
             border-bottom: 1px solid #fff0f2;
         }
 
-        /* รายการกิจกรรมและเกียรติบัตร */
+        /* รายการผลงาน/กิจกรรม */
         ul {
             list-style: none;
         }
@@ -185,7 +177,7 @@
             top: 0;
         }
 
-        /* แถบทักษะน่ารักๆ */
+        /* แถบทักษะความสามารถเคลื่อนไหว */
         .skill-item {
             margin-bottom: 20px;
         }
@@ -206,7 +198,6 @@
             border: 1px solid #ffe4e1;
         }
 
-        /* แอนิเมชันการโหลดของแถบทักษะเมื่อเปิดหน้าเว็บ */
         @keyframes loadBar {
             from { width: 0; }
         }
@@ -218,7 +209,7 @@
             animation: loadBar 1.5s ease-out;
         }
 
-        /* กลุ่มปุ่มติดต่อ */
+        /* ปุ่มติดต่อสื่อสาร */
         .contact-grid {
             display: flex;
             gap: 15px;
@@ -226,7 +217,6 @@
             margin-top: 15px;
         }
 
-        /* เอฟเฟกต์ปุ่มขยายตัวดุ๊กดิ๊ก */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.03); }
@@ -268,7 +258,7 @@
             border-top: 2px dashed #ffe4e1;
         }
 
-        /* รองรับการแสดงผลบนสมาร์ตโฟน */
+        /* ปรับแต่งเมื่อเปิดบนมือถือ */
         @media (max-width: 600px) {
             header h1 { font-size: 1.8rem; }
             section { padding: 20px; }
@@ -286,16 +276,16 @@
 </head>
 <body>
 
-    <!-- 🌸 ตัวสร้างภาพเคลื่อนไหวหัวใจลอยในฉากหลัง -->
+    <!-- 🌸 ส่วนประกอบแอนิเมชันหัวใจลอยในพื้นหลัง -->
     <div class="heart-bg h1">💗</div>
     <div class="heart-bg h2">🌸</div>
     <div class="heart-bg h3">💖</div>
     <div class="heart-bg h4">✨</div>
 
-    <!-- ส่วนหัวเว็บไซต์ -->
+    <!-- ส่วนหัวพอร์ตโฟลิโอ -->
     <header>
         <h1>นางสาวรัชดาภรณ์ สีลโสภโน</h1>
-        <p>🎀 แฟ้มสะสมผลงาน (Portfolio) 🎀</p>
+        <p>🎀 แฟ้มสะสมผลงาน (E-Portfolio) 🎀</p>
     </header>
 
     <div class="container">
@@ -304,11 +294,11 @@
         <section id="profile">
             <h2>1. ประวัติส่วนตัว</h2>
             <div class="profile-info">
-                <p><strong>ชื่อ-นามสกุล:</strong> นางสาว รัชดาภรณ์ สีลโสภโน</p>
+                <p><strong>ชื่อ-นามสกุล:</strong> นางสาวรัชดาภรณ์ สีลโสภโน</p>
                 <p><strong>ชื่อเล่น:</strong> นุ้ย</p>
                 <p><strong>ส่วนสูง:</strong> 159 เซนติเมตร</p>
                 <p><strong>น้ำหนัก:</strong> 53 กิโลกรัม</p>
-                <p><strong>สัญชาติ:</strong> ไทย &nbsp;&nbsp;&nbsp;&nbsp; <strong>ศาสนา:</strong>พุทธ</p>
+                <p><strong>สัญชาติ:</strong> ไทย &nbsp;&nbsp;&nbsp;&nbsp; <strong>ศาสนา:</strong> พุทธ</p>
             </div>
         </section>
 
@@ -333,18 +323,14 @@
                     </tr>
                 </tbody>
             </table>
+        </section>
 
-Made with 💗 by Ratchadaporn Silasopano | © 2026 All Rights Reserved.
+        <!-- 3. ผลงานและกิจกรรม -->
+        <section id="activities">
+            <h2>3. ผลงานและกิจกรรม</h2>
+            <ul>
+                <li><strong>งานศิลปหัตถกรรมครั้งที่ 71:</strong> เข้าร่วมการแข่งขันเล่าเรื่องจากภาพจีน ระดับชั้นมัธยมศึกษาตอนปลาย</li>
 
-
-### ฟีเจอร์เคลื่อนไหวน่ารักๆ ที่เพิ่มเข้ามา:
-1. **Heart & Flower Rain Background:** จะมีอีโมจิ 💗 🌸 💖 ลอยขึ้นมาจากด้านล่างขึ้นไปด้านบนอย่างนุ่มนวลตลอดเวลาในฉากหลัง ไม่กวนสายตา
-2. **Smooth Lift Hover Effect:** เมื่อนำเมาส์ไปชี้ที่การ์ดข้อมูลอันไหน การ์ดชิ้นนั้นจะขยับลอยตัวขึ้นมาหาเรานิดหน่อย พร้อมเปลี่ยนกรอบให้เข้มขึ้น
-3. **Wiggle Title Icon:** ตอนเอาเมาส์ชี้ที่หัวข้อ ดอกไม้หน้าหัวข้อจะขยับดุ๊กดิ๊กไปมาน่ารักมากครับ
-4. **Animated Skill Bars:** เมื่อเปิดหน้าเว็บ แถบพลังสกิลจะค่อยๆ โหลดวิ่งจาก 0% ไปจนถึงความสามารถจริงของคุณนุ้ยทันที
-5. **Pulsing Contact Buttons:** ปุ่มเบอร์โทรและ Facebook จะขยายตัวตุ๊บๆ เบาๆ เพื่อเพิ่มความน่าสนใจเวลามีคนจะติดต่อเข้ามาครับ
-
-หากคุณนุ้ยต้องการ**เปลี่ยนความหมายคำ** หรืออยากให้ปรับสีชมพูให้**เข้มขึ้น/อ่อนลง**ตรงไหน บอกได้เลยนะครับ!
 
 
 
