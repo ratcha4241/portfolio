@@ -3,253 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Ultra Animated Cute Portfolio 🌟🌈</title>
-    <!-- นำเข้าฟอนต์ลายมือน่ารักๆ จาก Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Itim&family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
-    
+    <title>พอร์ตโฟลิโอสุดน่ารัก | คุณนุ้ย รัชดาภรณ์</title>
     <style>
-        /* ==================== รวมคำสั่งแอนิเมชันเคลื่อนไหวทั้งหมด ==================== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes floatUpDown {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        @keyframes floatLeftRight {
-            0% { transform: translateX(0px) translateY(0px); }
-            50% { transform: translateX(10px) translateY(-10px); }
-            100% { transform: translateX(0px) translateY(0px); }
-        }
-        @keyframes heartPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        @keyframes rainbowText {
-            0% { color: #ff6b6b; }
-            25% { color: #feca57; }
-            50% { color: #1dd1a1; }
-            75% { color: #54a0ff; }
-            100% { color: #ff6b6b; }
-        }
-        @keyframes backgroundWalk {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
-        }
-
-        /* ==================== การตั้งค่าพื้นฐานหน้าเว็บ ==================== */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Itim', 'Mitr', sans-serif;
-            background-color: #fff0f6; /* พื้นหลังสีชมพูพีชพาสเทล */
-            /* พื้นหลังลายจุดเคลื่อนไหวตลอดเวลา */
-            background-image: radial-gradient(#ffd3e8 20%, transparent 20%);
-            background-size: 40px 40px;
-            animation: backgroundWalk 10s linear infinite;
+        /* นำเข้าฟอนต์ภาษาไทยที่อ่านง่ายและดูละมุน */
+        @import url('https://googleapis.com');
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #4a374a;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            background-color: #fff5f7; /* พื้นหลังสีชมพูพาสเทลอ่อน */
+            color: #6a4a55; /* สีตัวอักษรน้ำตาลเข้มอมชมพูเพื่อให้อ่านง่าย */
+            line-height: 1.7;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* ==================== แถบเมนูด้านบนดุ๊กดิ๊ก ==================== */
-        header {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 15px 10px;
+        /* 🌸 แอนิเมชันหัวใจลอยนุ่มๆ ในพื้นหลัง */
+        @keyframes floatHearts {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        .heart-bg {
             position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.2);
-            z-index: 1000;
-            backdrop-filter: blur(8px);
-            border-bottom: 3px dashed #ffb7d5;
+            font-size: 24px;
+            color: #ffb7ce;
+            z-index: -1;
+            user-select: none;
+            pointer-events: none;
         }
-        nav {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: #ff477e;
-            text-decoration: none;
-            margin: 5px 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 8px 16px;
-            border-radius: 25px;
-            background: #fff;
-            border: 2px solid #ffb7d5;
-            box-shadow: 0 4px 0 #ffb7d5;
-            transition: all 0.2s ease-in-out;
-            animation: heartPulse 3s infinite alternate;
-        }
-        /* เวลาเอาเมาส์ชี้เมนูจะเด้งและหมุน */
-        nav a:hover {
-            background-color: #ff477e;
-            color: white;
-            transform: scale(1.15) rotate(-3deg) translateY(-5px);
-            box-shadow: 0 6px 0 #ff0055;
+        .h1 { left: 10%; animation: floatHearts 12s infinite linear; }
+        .h2 { left: 30%; animation: floatHearts 8s infinite linear 2s; }
+        .h3 { left: 55%; animation: floatHearts 14s infinite linear 1s; }
+        .h4 { left: 80%; animation: floatHearts 10s infinite linear 4s; }
+
+        /* ส่วนหัวเว็บ (Header) */
+        header {
+            background: linear-gradient(135deg, #ffc0cb, #ffe4e1);
+            color: #7d4b57;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+            border-bottom: 5px dashed #ffffff;
         }
 
-        /* ==================== ส่วนจัดวางกล่องเนื้อหา ==================== */
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 0px #ffffff;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.5);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* คอนเทนเนอร์หลัก */
         .container {
-            max-width: 680px;
-            margin: 160px auto 80px auto;
+            max-width: 800px;
+            margin: 40px auto;
             padding: 0 20px;
-            position: relative;
         }
 
-        /* กล่องเนื้อหาขยับลอยได้ */
+        /* กล่องเนื้อหาแต่ละหัวข้อ */
         section {
-            background: white;
-            padding: 35px;
-            margin-bottom: 45px;
-            border-radius: 40px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
-            border: 4px dashed #ffb7d5;
-            animation: fadeInUp 0.8s ease-out, floatUpDown 6s ease-in-out infinite;
-            position: relative;
+            background-color: #ffffff; /* พื้นหลังกล่องสีขาวสะอาด */
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.15);
+            border: 2px solid #ffe4e1;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        /* เพิ่มความดีเลย์ให้แต่ละกล่องลอยสลับจังหวะกัน */
-        section:nth-child(even) {
-            animation: fadeInUp 1s ease-out, floatUpDown 7s ease-in-out infinite;
-            animation-delay: 0.2s;
+
+        /* เอฟเฟกต์เมื่อเอาเมาส์ชี้ กล่องจะลอยขึ้น */
+        section:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(255, 182, 193, 0.3);
+            border-color: #ffb6c1;
+        }
+
+        /* แอนิเมชันไอคอนดอกไม้ส่ายดุ๊กดิ๊ก */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
         }
 
         h2 {
-            font-size: 1.7rem;
-            margin-top: 0;
+            color: #d15b74;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px dotted #ffcbd5;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "🌸";
             display: inline-block;
-            animation: rainbowText 5s infinite; /* หัวข้อเปลี่ยนสีรุ้ง */
         }
 
-        /* ==================== รูปภาพเคลื่อนไหวและปุ่มลิงก์ ==================== */
-        .main-gif-box {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .big-cute-gif {
-            width: 150px;
-            height: auto;
-            animation: floatUpDown 4s ease-in-out infinite;
-        }
-        .decor-gif {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            width: 65px;
-            height: auto;
-            animation: floatLeftRight 3s ease-in-out infinite;
+        section:hover h2::before {
+            animation: wiggle 0.5s ease infinite;
         }
 
-        /* ตกแต่งรายการข้อความ */
+        .profile-info p {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .profile-info strong {
+            color: #b5475e;
+            display: inline-block;
+            width: 120px;
+        }
+
+        /* ตารางประวัติการศึกษา */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #ffe4e1;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #fff0f2;
+            color: #d15b74;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: #ffffff;
+            border-bottom: 1px solid #fff0f2;
+        }
+
+        /* รายการผลงาน/กิจกรรม */
         ul {
-            list-style-type: "🌸 ";
-            padding-left: 25px;
+            list-style: none;
         }
+
         li {
             margin-bottom: 15px;
-            font-size: 1.15rem;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.05rem;
         }
 
-        /* ปุ่มลิงก์ตัวหนังสือขยับได้เมื่อเอาเมาส์ชี้และกดดูได้จริง */
-        .click-link {
-            display: inline-block;
-            color: #ff477e;
+        li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* แถบทักษะความสามารถเคลื่อนไหว */
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .bar-container {
+            background-color: #fff0f2;
+            border-radius: 20px;
+            height: 16px;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #ffe4e1;
+        }
+
+        @keyframes loadBar {
+            from { width: 0; }
+        }
+
+        .bar-fill {
+            background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+            height: 100%;
+            border-radius: 20px;
+            animation: loadBar 1.5s ease-out;
+        }
+
+        /* ปุ่มติดต่อสื่อสาร */
+        .contact-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 12px;
-            background-color: #fff0f5;
-            border: 2px solid transparent;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
             transition: all 0.3s ease;
-            animation: heartPulse 2s infinite;
-        }
-        .click-link:hover {
-            color: white;
-            background-color: #ff477e;
-            transform: scale(1.2) rotate(3deg);
-            border-color: #ffb7d5;
-            box-shadow: 0 4px 10px rgba(255, 71, 126, 0.4);
+            font-size: 1rem;
+            flex: 1;
+            min-width: 200px;
         }
 
-        /* สติกเกอร์ดุ๊กดิ๊กลอยอิสระข้างจอ (ตกแต่งเพิ่มความขยับเยอะๆ) */
-        .floating-sticker-left {
-            position: fixed;
-            left: 20px;
-            bottom: 50px;
-            width: 100px;
-            animation: floatUpDown 5s infinite;
-            z-index: 10;
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+            animation: pulse 1s infinite;
         }
-        .floating-sticker-right {
-            position: fixed;
-            right: 20px;
-            top: 120px;
-            width: 90px;
-            animation: floatLeftRight 4s infinite;
-            z-index: 10;
+
+        .btn-phone { background: linear-gradient(135deg, #ff8da1, #ff6b8b); }
+        .btn-fb { background: linear-gradient(135deg, #4fa3e3, #1d72b8); }
+
+        /* ส่วนท้ายเว็บ */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #b5475e;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 2px dashed #ffe4e1;
+        }
+
+        /* ปรับแต่งเมื่อเปิดบนมือถือ */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            section { padding: 20px; }
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { border: 1px solid #ffe4e1; margin-bottom: 15px; border-radius: 12px; }
+            td { border: none; border-bottom: 1px solid #fff0f2; position: relative; padding-left: 45%; text-align: right; }
+            td:before { position: absolute; top: 14px; left: 14px; width: 40%; text-align: left; font-weight: bold; color: #d15b74; }
+            td:nth-of-type(1):before { content: "ระดับชั้น"; }
+            td:nth-of-type(2):before { content: "ชื่อสถานศึกษา"; }
+            .profile-info strong { display: block; margin-bottom: 2px; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- สติกเกอร์การ์ตูนเคลื่อนไหวลอยค้างหน้าจอด้านซ้ายและขวา -->
-    <img class="floating-sticker-left" src="https://giphy.com" alt="floating cute">
-    <img class="floating-sticker-right" src="https://giphy.com" alt="floating cloud">
+    <!-- 🌸 ส่วนประกอบแอนิเมชันหัวใจลอยในพื้นหลัง -->
+    <div class="heart-bg h1">💗</div>
+    <div class="heart-bg h2">🌸</div>
+    <div class="heart-bg h3">💖</div>
+    <div class="heart-bg h4">✨</div>
 
-    <!-- เมนูลิงก์ด้านบนสไตล์ปุ่มเด้งดุ๊กดิ๊ก -->
+    <!-- ส่วนหัวพอร์ตโฟลิโอ -->
     <header>
-        <nav>
-            <a href="#about">🦄 1. ประวัติส่วนตัว</a>
-            <a href="#education">🎒 2. การศึกษา</a>
-            <a href="#activities">🎪 3. ผลงานกิจกรรม</a>
-            <a href="#skills">🥞 4. ทักษะความสามารถ</a>
-            <a href="#certificates">✨ 5. เกียรติบัตร</a>
-            <a href="#contact">💌 6. ติดต่อเรา</a>
-        </nav>
+        <h1>นางสาวรัชดาภรณ์ สีลโสภโน</h1>
+        <p>🎀 แฟ้มสะสมผลงาน (E-Portfolio) 🎀</p>
     </header>
 
     <div class="container">
 
-        <!-- ภาพเคลื่อนไหวหลักตรงกลางต้อนรับสุดอลังการ -->
-        <div class="main-gif-box">
-            <img class="big-cute-gif" src="https://giphy.com" alt="Welcome Bear">
-            <h1 style="color: #ff477e; font-size: 2.2rem; margin-top: 15px; text-shadow: 2px 2px 0px #fff;">ยินดีต้อนรับสู่โลกสีพาสเทลของฉัน! 💕</h1>
-        </div>
-
         <!-- 1. ประวัติส่วนตัว -->
-        <section id="about">
-            <img class="decor-gif" src="https://giphy.com" alt="cat animation">
-            <h2>🎀 1. ประวัติส่วนตัว</h2>
-            <p><strong>ชื่อ-นามสกุล:</strong> น้องพาสเทล ดุ๊กดิ๊กร่าเริง</p>
-            <p><strong>ชื่อเล่น:</strong> โมจิ 🍡</p>
-            <p><strong>วันเกิด:</strong> 14 กุมภาพันธ์ ♥</p>
-            <p><strong>เกี่ยวกับฉัน:</strong> <a class="click-link" href="https://example.com" target="_blank">👉 กดอ่านบันทึกประวัติส่วนตัวฉบับเต็มคลิกที่นี่เลย!</a></p>
+        <section id="profile">
+            <h2>1. ประวัติส่วนตัว</h2>
+            <div class="profile-info">
+                <p><strong>ชื่อ-นามสกุล:</strong> นางสาวรัชดาภรณ์ สีลโสภโน</p>
+                <p><strong>ชื่อเล่น:</strong> นุ้ย</p>
+                <p><strong>ส่วนสูง:</strong> 159 เซนติเมตร</p>
+                <p><strong>น้ำหนัก:</strong> 53 กิโลกรัม</p>
+                <p><strong>สัญชาติ:</strong> ไทย &nbsp;&nbsp;&nbsp;&nbsp; <strong>ศาสนา:</strong> พุทธ</p>
+            </div>
         </section>
 
         <!-- 2. ประวัติการศึกษา -->
         <section id="education">
-            <h2>🏫 2. ประวัติการศึกษา</h2>
-            <ul>
-                <li><strong>มัธยมศึกษา:</strong> โรงเรียนเวทมนตร์วิทยา (สายวิทย์-คอม) <a class="click-link" href="https://example.com" target="_blank">🔗 เว็บไซต์โรงเรียน</a></li>
-                <li><strong>ปริญญาตรี:</strong> มหาวิทยาลัยเบเกอรี่ซอฟต์แวร์ คณะไอที <a class="click-link" href="https://example.com" target="_blank">🔗 เว็บไซต์มหาวิทยาลัย</a></li>
-            </ul>
+            <h2>2. ประวัติการศึกษา</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ระดับชั้นที่ศึกษา</th>
+                        <th>สถานศึกษา</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>อนุบาล 1 - มัธยมศึกษาปีที่ 3</td>
+                        <td>โรงเรียนเพลินจิตวิทยา</td>
+                    </tr>
+                    <tr>
+                        <td>มัธยมศึกษาปีที่ 4 - 6</td>
+                        <td>โรงเรียนพานทอง</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- 3. ผลงานและกิจกรรม -->
         <section id="activities">
-            <img class="decor-gif" src="https://giphy.com" alt="star animation">
-            <h2>🎨 3. ผลงานและกิจกรรม</h2>
-
+            <h2>3. ผลงานและกิจกรรม</h2>
+            <ul>
+                <li><strong>งานศิลปหัตถกรรมครั้งที่ 71:</strong> เข้าร่วมการแข่งขันเล่าเรื่องจากภาพจีน ระดับชั้นมัธยมศึกษาตอนปลาย</li>
 
