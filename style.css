@@ -1,118 +1,255 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Ultra Animated Cute Portfolio 🌟🌈</title>
+    <!-- นำเข้าฟอนต์ลายมือน่ารักๆ จาก Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Itim&family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================== รวมคำสั่งแอนิเมชันเคลื่อนไหวทั้งหมด ==================== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatUpDown {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes floatLeftRight {
+            0% { transform: translateX(0px) translateY(0px); }
+            50% { transform: translateX(10px) translateY(-10px); }
+            100% { transform: translateX(0px) translateY(0px); }
+        }
+        @keyframes heartPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes rainbowText {
+            0% { color: #ff6b6b; }
+            25% { color: #feca57; }
+            50% { color: #1dd1a1; }
+            75% { color: #54a0ff; }
+            100% { color: #ff6b6b; }
+        }
+        @keyframes backgroundWalk {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
 
-body {
-    background: #f4f6f9;
-    color: #333;
-    line-height: 1.6;
-}
+        /* ==================== การตั้งค่าพื้นฐานหน้าเว็บ ==================== */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Itim', 'Mitr', sans-serif;
+            background-color: #fff0f6; /* พื้นหลังสีชมพูพีชพาสเทล */
+            /* พื้นหลังลายจุดเคลื่อนไหวตลอดเวลา */
+            background-image: radial-gradient(#ffd3e8 20%, transparent 20%);
+            background-size: 40px 40px;
+            animation: backgroundWalk 10s linear infinite;
+            margin: 0;
+            padding: 0;
+            color: #4a374a;
+            overflow-x: hidden;
+        }
 
-header {
-    background: #1e3a8a;
-    padding: 15px 30px;
-}
+        /* ==================== แถบเมนูด้านบนดุ๊กดิ๊ก ==================== */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.2);
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            border-bottom: 3px dashed #ffb7d5;
+        }
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #ff477e;
+            text-decoration: none;
+            margin: 5px 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: #fff;
+            border: 2px solid #ffb7d5;
+            box-shadow: 0 4px 0 #ffb7d5;
+            transition: all 0.2s ease-in-out;
+            animation: heartPulse 3s infinite alternate;
+        }
+        /* เวลาเอาเมาส์ชี้เมนูจะเด้งและหมุน */
+        nav a:hover {
+            background-color: #ff477e;
+            color: white;
+            transform: scale(1.15) rotate(-3deg) translateY(-5px);
+            box-shadow: 0 6px 0 #ff0055;
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        /* ==================== ส่วนจัดวางกล่องเนื้อหา ==================== */
+        .container {
+            max-width: 680px;
+            margin: 160px auto 80px auto;
+            padding: 0 20px;
+            position: relative;
+        }
 
-.logo {
-    color: white;
-}
+        /* กล่องเนื้อหาขยับลอยได้ */
+        section {
+            background: white;
+            padding: 35px;
+            margin-bottom: 45px;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+            border: 4px dashed #ffb7d5;
+            animation: fadeInUp 0.8s ease-out, floatUpDown 6s ease-in-out infinite;
+            position: relative;
+        }
+        /* เพิ่มความดีเลย์ให้แต่ละกล่องลอยสลับจังหวะกัน */
+        section:nth-child(even) {
+            animation: fadeInUp 1s ease-out, floatUpDown 7s ease-in-out infinite;
+            animation-delay: 0.2s;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
+        h2 {
+            font-size: 1.7rem;
+            margin-top: 0;
+            display: inline-block;
+            animation: rainbowText 5s infinite; /* หัวข้อเปลี่ยนสีรุ้ง */
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+        /* ==================== รูปภาพเคลื่อนไหวและปุ่มลิงก์ ==================== */
+        .main-gif-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .big-cute-gif {
+            width: 150px;
+            height: auto;
+            animation: floatUpDown 4s ease-in-out infinite;
+        }
+        .decor-gif {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 65px;
+            height: auto;
+            animation: floatLeftRight 3s ease-in-out infinite;
+        }
 
-nav a:hover {
-    color: #ffd700;
-}
+        /* ตกแต่งรายการข้อความ */
+        ul {
+            list-style-type: "🌸 ";
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+        }
 
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    gap: 40px;
-    flex-wrap: wrap;
-}
+        /* ปุ่มลิงก์ตัวหนังสือขยับได้เมื่อเอาเมาส์ชี้และกดดูได้จริง */
+        .click-link {
+            display: inline-block;
+            color: #ff477e;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background-color: #fff0f5;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            animation: heartPulse 2s infinite;
+        }
+        .click-link:hover {
+            color: white;
+            background-color: #ff477e;
+            transform: scale(1.2) rotate(3deg);
+            border-color: #ffb7d5;
+            box-shadow: 0 4px 10px rgba(255, 71, 126, 0.4);
+        }
 
-.hero-text {
-    max-width: 500px;
-}
+        /* สติกเกอร์ดุ๊กดิ๊กลอยอิสระข้างจอ (ตกแต่งเพิ่มความขยับเยอะๆ) */
+        .floating-sticker-left {
+            position: fixed;
+            left: 20px;
+            bottom: 50px;
+            width: 100px;
+            animation: floatUpDown 5s infinite;
+            z-index: 10;
+        }
+        .floating-sticker-right {
+            position: fixed;
+            right: 20px;
+            top: 120px;
+            width: 90px;
+            animation: floatLeftRight 4s infinite;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
 
-.hero h2 {
-    color: #1e3a8a;
-    font-size: 2rem;
-}
+    <!-- สติกเกอร์การ์ตูนเคลื่อนไหวลอยค้างหน้าจอด้านซ้ายและขวา -->
+    <img class="floating-sticker-left" src="https://giphy.com" alt="floating cute">
+    <img class="floating-sticker-right" src="https://giphy.com" alt="floating cloud">
 
-.hero h3 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
+    <!-- เมนูลิงก์ด้านบนสไตล์ปุ่มเด้งดุ๊กดิ๊ก -->
+    <header>
+        <nav>
+            <a href="#about">🦄 1. ประวัติส่วนตัว</a>
+            <a href="#education">🎒 2. การศึกษา</a>
+            <a href="#activities">🎪 3. ผลงานกิจกรรม</a>
+            <a href="#skills">🥞 4. ทักษะความสามารถ</a>
+            <a href="#certificates">✨ 5. เกียรติบัตร</a>
+            <a href="#contact">💌 6. ติดต่อเรา</a>
+        </nav>
+    </header>
 
-.hero p {
-    margin-bottom: 20px;
-}
+    <div class="container">
 
-.btn {
-    display: inline-block;
-    background: #1e3a8a;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
+        <!-- ภาพเคลื่อนไหวหลักตรงกลางต้อนรับสุดอลังการ -->
+        <div class="main-gif-box">
+            <img class="big-cute-gif" src="https://giphy.com" alt="Welcome Bear">
+            <h1 style="color: #ff477e; font-size: 2.2rem; margin-top: 15px; text-shadow: 2px 2px 0px #fff;">ยินดีต้อนรับสู่โลกสีพาสเทลของฉัน! 💕</h1>
+        </div>
 
-.btn:hover {
-    background: #2563eb;
-}
+        <!-- 1. ประวัติส่วนตัว -->
+        <section id="about">
+            <img class="decor-gif" src="https://giphy.com" alt="cat animation">
+            <h2>🎀 1. ประวัติส่วนตัว</h2>
+            <p><strong>ชื่อ-นามสกุล:</strong> น้องพาสเทล ดุ๊กดิ๊กร่าเริง</p>
+            <p><strong>ชื่อเล่น:</strong> โมจิ 🍡</p>
+            <p><strong>วันเกิด:</strong> 14 กุมภาพันธ์ ♥</p>
+            <p><strong>เกี่ยวกับฉัน:</strong> <a class="click-link" href="https://example.com" target="_blank">👉 กดอ่านบันทึกประวัติส่วนตัวฉบับเต็มคลิกที่นี่เลย!</a></p>
+        </section>
 
-.hero-image img {
-    width: 250px;
-    border-radius: 50%;
-    border: 5px solid #1e3a8a;
-}
+        <!-- 2. ประวัติการศึกษา -->
+        <section id="education">
+            <h2>🏫 2. ประวัติการศึกษา</h2>
+            <ul>
+                <li><strong>มัธยมศึกษา:</strong> โรงเรียนเวทมนตร์วิทยา (สายวิทย์-คอม) <a class="click-link" href="https://example.com" target="_blank">🔗 เว็บไซต์โรงเรียน</a></li>
+                <li><strong>ปริญญาตรี:</strong> มหาวิทยาลัยเบเกอรี่ซอฟต์แวร์ คณะไอที <a class="click-link" href="https://example.com" target="_blank">🔗 เว็บไซต์มหาวิทยาลัย</a></li>
+            </ul>
+        </section>
 
-.summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 40px 20px;
-}
+        <!-- 3. ผลงานและกิจกรรม -->
+        <section id="activities">
+            <img class="decor-gif" src="https://giphy.com" alt="star animation">
+            <h2>🎨 3. ผลงานและกิจกรรม</h2>
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
 
-.card h3 {
-    margin-bottom: 10px;
-    color: #1e3a8a;
-}
-
-footer {
-    background: #1e3a8a;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-}
