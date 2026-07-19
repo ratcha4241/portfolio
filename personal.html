@@ -1,337 +1,74 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>พอร์ตโฟลิโอสุดน่ารัก | คุณนุ้ย รัชดาภรณ์</title>
-    <style>
-        /* นำเข้าฟอนต์ภาษาไทยที่อ่านง่ายและดูละมุน */
-        @import url('https://googleapis.com');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Sarabun', sans-serif;
-        }
-
-        body {
-            background-color: #fff5f7; /* พื้นหลังสีชมพูพาสเทลอ่อน */
-            color: #6a4a55; /* สีตัวอักษรน้ำตาลเข้มอมชมพูเพื่อให้อ่านง่าย */
-            line-height: 1.7;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* 🌸 แอนิเมชันหัวใจลอยนุ่มๆ ในพื้นหลัง */
-        @keyframes floatHearts {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-            50% { opacity: 0.6; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-        }
-
-        .heart-bg {
-            position: fixed;
-            font-size: 24px;
-            color: #ffb7ce;
-            z-index: -1;
-            user-select: none;
-            pointer-events: none;
-        }
-        .h1 { left: 10%; animation: floatHearts 12s infinite linear; }
-        .h2 { left: 30%; animation: floatHearts 8s infinite linear 2s; }
-        .h3 { left: 55%; animation: floatHearts 14s infinite linear 1s; }
-        .h4 { left: 80%; animation: floatHearts 10s infinite linear 4s; }
-
-        /* ส่วนหัวเว็บ (Header) */
-        header {
-            background: linear-gradient(135deg, #ffc0cb, #ffe4e1);
-            color: #7d4b57;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
-            border-bottom: 5px dashed #ffffff;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-shadow: 2px 2px 0px #ffffff;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            background: rgba(255,255,255,0.5);
-            display: inline-block;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        /* คอนเทนเนอร์หลัก */
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* กล่องเนื้อหาแต่ละหัวข้อ */
-        section {
-            background-color: #ffffff; /* พื้นหลังกล่องสีขาวสะอาด */
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.15);
-            border: 2px solid #ffe4e1;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        /* เอฟเฟกต์เมื่อเอาเมาส์ชี้ กล่องจะลอยขึ้น */
-        section:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 25px rgba(255, 182, 193, 0.3);
-            border-color: #ffb6c1;
-        }
-
-        /* แอนิเมชันไอคอนดอกไม้ส่ายดุ๊กดิ๊ก */
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
-        }
-
-        h2 {
-            color: #d15b74;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            border-bottom: 2px dotted #ffcbd5;
-            padding-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2::before {
-            content: "🌸";
-            display: inline-block;
-        }
-
-        section:hover h2::before {
-            animation: wiggle 0.5s ease infinite;
-        }
-
-        .profile-info p {
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-
-        .profile-info strong {
-            color: #b5475e;
-            display: inline-block;
-            width: 120px;
-        }
-
-        /* ตารางประวัติการศึกษา */
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 10px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #ffe4e1;
-        }
-
-        th, td {
-            padding: 14px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #fff0f2;
-            color: #d15b74;
-            font-weight: 600;
-        }
-
-        td {
-            background-color: #ffffff;
-            border-bottom: 1px solid #fff0f2;
-        }
-
-        /* รายการผลงาน/กิจกรรม */
-        ul {
-            list-style: none;
-        }
-
-        li {
-            margin-bottom: 15px;
-            position: relative;
-            padding-left: 30px;
-            font-size: 1.05rem;
-        }
-
-        li::before {
-            content: "✨";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* แถบทักษะความสามารถเคลื่อนไหว */
-        .skill-item {
-            margin-bottom: 20px;
-        }
-
-        .skill-name {
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-            font-size: 1rem;
-        }
-
-        .bar-container {
-            background-color: #fff0f2;
-            border-radius: 20px;
-            height: 16px;
-            width: 100%;
-            overflow: hidden;
-            border: 1px solid #ffe4e1;
-        }
-
-        @keyframes loadBar {
-            from { width: 0; }
-        }
-
-        .bar-fill {
-            background: linear-gradient(90deg, #ffb6c1, #ff69b4);
-            height: 100%;
-            border-radius: 20px;
-            animation: loadBar 1.5s ease-out;
-        }
-
-        /* ปุ่มติดต่อสื่อสาร */
-        .contact-grid {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 25px;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
-            animation: pulse 1s infinite;
-        }
-
-        .btn-phone { background: linear-gradient(135deg, #ff8da1, #ff6b8b); }
-        .btn-fb { background: linear-gradient(135deg, #4fa3e3, #1d72b8); }
-
-        /* ส่วนท้ายเว็บ */
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #b5475e;
-            font-size: 0.9rem;
-            margin-top: 40px;
-            border-top: 2px dashed #ffe4e1;
-        }
-
-        /* ปรับแต่งเมื่อเปิดบนมือถือ */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            section { padding: 20px; }
-            table, thead, tbody, th, td, tr { display: block; }
-            thead tr { position: absolute; top: -9999px; left: -9999px; }
-            tr { border: 1px solid #ffe4e1; margin-bottom: 15px; border-radius: 12px; }
-            td { border: none; border-bottom: 1px solid #fff0f2; position: relative; padding-left: 45%; text-align: right; }
-            td:before { position: absolute; top: 14px; left: 14px; width: 40%; text-align: left; font-weight: bold; color: #d15b74; }
-            td:nth-of-type(1):before { content: "ระดับชั้น"; }
-            td:nth-of-type(2):before { content: "ชื่อสถานศึกษา"; }
-            .profile-info strong { display: block; margin-bottom: 2px; }
-            .btn { width: 100%; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ประวัติส่วนตัว | รัชดาภรณ์ สีลโสภโน</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 🌸 ส่วนประกอบแอนิเมชันหัวใจลอยในพื้นหลัง -->
-    <div class="heart-bg h1">💗</div>
-    <div class="heart-bg h2">🌸</div>
-    <div class="heart-bg h3">💖</div>
-    <div class="heart-bg h4">✨</div>
+<nav class="topnav">
+  <div class="brand">
+    <span class="crest brand-crest">
+      <svg viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="var(--gold-light)" stroke-width="1.2"/>
+        <circle cx="50" cy="50" r="39" fill="none" stroke="var(--gold-light)" stroke-width="0.6"/>
+        <text x="50" y="61" text-anchor="middle" font-family="'Noto Serif Thai', serif" font-size="36" fill="var(--gold-light)">ร</text>
+      </svg>
+    </span>
+    <span class="brand-text">
+      <span class="brand-name">รัชดาภรณ์ สีลโสภโน</span>
+      <span class="brand-sub">Portfolio · Est. 2026</span>
+    </span>
+  </div>
+  <button class="nav-toggle" aria-label="เปิดเมนู">&#9776;</button>
+  <ul class="navlinks">
+    <li><a href="index.html">หน้าหลัก</a></li>
+    <li><a href="personal.html" aria-current="page">ประวัติส่วนตัว</a></li>
+    <li><a href="education.html">ประวัติการศึกษา</a></li>
+    <li><a href="activities.html">ผลงาน</a></li>
+    <li><a href="contact.html">ติดต่อ</a></li>
+  </ul>
+</nav>
 
-    <!-- ส่วนหัวพอร์ตโฟลิโอ -->
-    <header>
-        <h1>นางสาวรัชดาภรณ์ สีลโสภโน</h1>
-        <p>🎀 แฟ้มสะสมผลงาน (E-Portfolio) 🎀</p>
-    </header>
+<main>
+  <header class="page-header">
+    <span class="eyebrow">I · About</span>
+    <h1>ประวัติส่วนตัว</h1>
+    <div class="rule"><span></span></div>
+  </header>
 
-    <div class="container">
+  <div class="card">
+    <div class="profile-block">
+      <!-- รูปโปรไฟล์: เปลี่ยนไฟล์ในโฟลเดอร์ images/ แล้วแก้ src ด้านล่างได้เลย -->
+      <div class="frame">
+        <span class="fc1"></span><span class="fc2"></span>
+        <img src="images/รัชดาภรณ์.png" alt="รูปรัชดาภรณ์ สีลโสภโน">
+      </div>
 
-        <!-- 1. ประวัติส่วนตัว -->
-        <section id="profile">
-            <h2>1. ประวัติส่วนตัว</h2>
-            <div class="profile-info">
-                <p><strong>ชื่อ-นามสกุล:</strong> นางสาว รัชดาภรณ์ สีลโสภโน</p>
-                <p><strong>ชื่อเล่น:</strong> นุ้ย</p>
-                <p><strong>ส่วนสูง:</strong> 159 เซนติเมตร</p>
-                <p><strong>น้ำหนัก:</strong> 53 กิโลกรัม</p>
-                <p><strong>สัญชาติ:</strong> ไทย &nbsp;&nbsp;&nbsp;&nbsp; <strong>ศาสนา:</strong>พุทธ</p>
-            </div>
-        </section>
+      <dl class="info-list">
+        <dt>ชื่อ-นามสกุล</dt><dd>นางสาวรัชดาภรณ์ สีลโสภโน</dd>
+        <dt>ชื่อเล่น</dt><dd>นุ้ย</dd>
+        <dt>ส่วนสูง</dt><dd>159 เซนติเมตร</dd>
+        <dt>น้ำหนัก</dt><dd>53 กิโลกรัม</dd>
+        <dt>สัญชาติ</dt><dd>ไทย</dd>
+        <dt>ศาสนา</dt><dd>พุทธ</dd>
+      </dl>
+    </div>
+  </div>
+</main>
 
-        <!-- 2. ประวัติการศึกษา -->
-        <section id="education">
-            <h2>2. ประวัติการศึกษา</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ระดับชั้นที่ศึกษา</th>
-                        <th>สถานศึกษา</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>อนุบาล 1 - มัธยมศึกษาปีที่ 3</td>
-                        <td>โรงเรียนเพลินจิตวิทยา</td>
-                    </tr>
-                    <tr>
-                        <td>มัธยมศึกษาปีที่ 4 - 6</td>
-                        <td>โรงเรียนพานทอง</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+<footer>
+  <span class="crest">
+    <svg viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="var(--gold-light)" stroke-width="1"/>
+      <text x="50" y="61" text-anchor="middle" font-family="'Noto Serif Thai', serif" font-size="34" fill="var(--gold-light)">ร</text>
+    </svg>
+  </span>
+  &copy; 2026 รัชดาภรณ์ สีลโสภโน — Portfolio Website
+</footer>
 
-        <!-- 3. ผลงานและกิจกรรม -->
-        <section id="activities">
-            <h2>3. ผลงานและกิจกรรม</h2>
-            <ul>
-                <li><strong>งานศิลปหัตถกรรมครั้งที่ 71:</strong> เข้าร่วมการแข่งขันเล่าเรื่องจากภาพจีน ระดับชั้นมัธยมศึกษาตอนปลาย</li>
-
-
-
-
-
+<script src="script.js"></script>
+</body>
+</html>
